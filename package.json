@@ -1,0 +1,18 @@
+{
+  "name": "i4g_zuri_hng-_traning",
+  "version": "1.0.0",
+  "description": "I4G_Zuri traning, Node.JS task 2",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "HNG",
+    "ZURI",
+    "I4G"
+  ],
+  "author": "izaak chukwuma",
+  "license": "ISC"
+}
