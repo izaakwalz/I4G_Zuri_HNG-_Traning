@@ -1,28 +1,19 @@
 import http from 'http';
+import fs from 'fs';
 
-const server = http.createServer(async (req, res) => {
-  const data = {
-    data: {
-      name: 'Izaak Chukwuma',
-      country: 'Nigeria',
-      hobby: 'Playing Games',
-    },
-  };
+const url = 'http://jsonplaceholder.typicode.com/posts'; // json place holder url
 
-  res.writeHead(200, { 'Content-Type': ['text/plain', 'application/json'] });
-  //   res.writeHead(200, { 'Content-Type': 'application/json' });
-  //  @ \r\n ==> line break in plain/text.
-  res.write(
-    `Wellcome to the ZURI Intership Training,\r\n\r\n ${JSON.stringify(data)}`
-  );
-  res.write(JSON.stringify(data));
-  res.end();
-});
+http.get(url, (res) => {
+  let data = [];
+  res.on('data', (result) => {
+    data.push(result);
+  });
 
-// server port
-const PORT = 2021;
+  res.on('end', () => {
+    const result = JSON.parse(Buffer.concat(data));
 
-// server listing
-server.listen(PORT, async () => {
-  console.log(`:::> Server running on ${PORT} @ http://localhost:${PORT}`);
+    fs.writeFileSync('./result/post.json', `${JSON.stringify(result)}`);
+
+    console.log('done');
+  });
 });
