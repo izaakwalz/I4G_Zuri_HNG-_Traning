@@ -13,8 +13,6 @@ const errorHandler = (err, req, res, next) => {
     error = new ErrorResponse('Resourse not - found', 400);
   }
 
-  console.log(err.message);
-
   if (err.code === 11000) {
     const field = err.message.split(':')[3].replace(' { ', ''); // convert errors to an array
     const message = `Duplicate field: ${field.toUpperCase()} value entered`;
