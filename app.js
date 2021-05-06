@@ -1,4 +1,5 @@
 import http from 'http';
+import fs from 'fs';
 
 const server = http.createServer(async (req, res) => {
   const data = {
@@ -9,13 +10,15 @@ const server = http.createServer(async (req, res) => {
     },
   };
 
-  res.writeHead(200, { 'Content-Type': ['text/plain', 'application/json'] });
-  //   res.writeHead(200, { 'Content-Type': 'application/json' });
+  const read = fs.readFileSync('./post.json', 'utf-8');
+
+  // res.writeHead(200, { 'Content-Type': ['text/plain', 'application/json'] });
+  res.writeHead(200, { 'Content-Type': 'application/json' });
   //  @ \r\n ==> line break in plain/text.
-  res.write(
-    `Wellcome to the ZURI Intership Training,\r\n\r\n ${JSON.stringify(data)}`
-  );
-  res.write(JSON.stringify(data));
+  // res.write(
+  //   `Wellcome to the ZURI Intership Training,\r\n\r\n ${JSON.stringify(data)}`
+  // );
+  res.write(read);
   res.end();
 });
 
