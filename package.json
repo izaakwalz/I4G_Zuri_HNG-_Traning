@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "I4G_Zuri traning, Node.JS task 2",
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "start": "node -r dotenv/config  backend/server",
     "dev": "nodemon -r dotenv/config backend/server dotenv_config_path=./.env.dev"
