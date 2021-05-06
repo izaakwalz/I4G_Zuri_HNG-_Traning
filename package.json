@@ -1,12 +1,12 @@
 {
-  "name": "i4g_zuri_hng-_traning",
+  "name": "i4g_zuri_hng-_traning-task_3",
   "version": "1.0.0",
   "description": "I4G_Zuri traning, Node.JS task 2",
-  "main": "app.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node -r dotenv/config  backend/server",
+    "dev": "nodemon -r dotenv/config backend/server dotenv_config_path=./.env.dev"
   },
   "keywords": [
     "HNG",
@@ -14,5 +14,13 @@
     "I4G"
   ],
   "author": "izaak chukwuma",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^9.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
