@@ -1,25 +1,31 @@
 const ErrorResponse = require('../utils/error-response');
 
+const notFound = (req, res, next) => {
+  const message = `Resourse not found - [${req.method}] ${req.originalUrl}`;
+  const error = new ErrorResponse(message, 404);
+  next(error);
+};
+
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
 
-  if (err.message == 'CastError') {
-    const message = `Resourse not found - [${req.method}] ${req.originalUrl}`;
-    const error = new ErrorResponse(message, 404);
-    next(error);
+  if (err.name === 'CastError') {
+    error = new ErrorResponse('Resourse not - found', 400);
   }
 
-  if (err.code == 11000) {
+  console.log(err.message);
+
+  if (err.code === 11000) {
     const field = err.message.split(':')[3].replace(' { ', ''); // convert errors to an array
     const message = `Duplicate field: ${field.toUpperCase()} value entered`;
-    error = new CustomError(message, 400);
+    error = new ErrorResponse(message, 400);
   }
 
   if (err.name === 'ValidationError') {
     const message = Object.values(err.errors)
       .map((error) => error.message)
       .join(', ');
-    error = new CustomError(message, 400);
+    error = new ErrorResponse(message, 400);
   }
 
   res.status(error.statusCode || 500);
@@ -30,4 +36,4 @@ const errorHandler = (err, req, res, next) => {
   });
 };
 
-module.exports = errorHandler;
+module.exports = { notFound, errorHandler };
