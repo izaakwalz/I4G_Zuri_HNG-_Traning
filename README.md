@@ -1,15 +1,65 @@
-### Task Title: NodeJS File System Task
+# Task Title: Crud App With Database
 
-Back End
-JavaScript
-Created 12-04-2021 08:39:46
+##### <b>Heroku Link🌐:</b> https://heroku.com
 
-The aim of this task is to test how well you can research. You have learned about NodeJS file system. Read the following instructions carefully.
+## APP FEATURES
 
-1. Create a script file that fetches data from JSON PLACEHOLDER POSTS
-2. Write the JSON data gotten from the API to a file called posts.json or posts.txt
-3. posts.json or post.txt should be in a directory file called result.
-4. Create a github repository and push your work.
+Create a simple express application that:
 
-Submit the github link. Ensure that your repository isn't a private repository.
-HINT: You can choose to use the Axios package if you want. I'd advise not to. If you choose to, do not push node_modules to your repo.
+1. Connects to database
+2. Creates the payload:
+   `{ message: String, data: Object }`
+3. Get's the data created,
+4. Updates the data created,
+5. Deletes the data Created
+
+The data you are required to create should contain name, email, country.
+
+## How To Run
+
+- In the project directory, you can run:
+  `npm install`
+- add enviromental virables, create
+- `mkdir .env .env.dev` file then add the following
+
+```javascript
+ PORT = your desired port
+ NODE_ENV = development
+ MONGODB_URI=mongodb://localhost/XXX-XXX-XXX
+```
+
+- In your terminal run `npm start` or `npm run dev`
+
+## Get All Data Endpoints
+
+- `GET: /api.v1/users` : access public, get all data
+
+```json
+GET >>> data: {}
+```
+
+## Create Endpoints
+
+- `POST: /api/v1/users` : access public, post data:
+
+```javascript
+POST req.body >>> data: {}
+```
+
+## Update Data Endpoints
+
+- `PUT: /api/v1/users/:id` : access public, update data:
+
+```javascript
+PUT req.params >>>  <user id> data:  {}
+```
+
+## Delete Data
+
+- `DELETE: /api/v1/users/:id` : assess public, delete data:
+
+```javascript
+Delete req.params >>>  <user id> data:  {}
+```
+
+###### CRUD APP ⬛
