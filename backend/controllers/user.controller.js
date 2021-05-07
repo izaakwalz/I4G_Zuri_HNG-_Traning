@@ -4,6 +4,16 @@ const response = require('../utils/response');
 const User = require('../models/user.model');
 
 /**
+ * @ {desc}   GET All data
+ * @ {route}  GET /api/v1/users
+ * @ {access} Public
+ */
+const GetData = asyncHandeler(async (req, res) => {
+  const users = await User.find({}, { __v: 0 });
+
+  res.status(201).send(response('Success: Data', users));
+});
+/**
  * @ {desc}   Create data
  * @ {route}  POST /api/v1/users
  * @ {access} Public
@@ -52,4 +62,4 @@ const DeleteData = asyncHandeler(async (req, res) => {
   res.status(200).send(response('Success: data Deleted', user));
 });
 
-module.exports = { CreateData, UpdateData, DeleteData };
+module.exports = { GetData, CreateData, UpdateData, DeleteData };
