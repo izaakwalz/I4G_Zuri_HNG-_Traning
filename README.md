@@ -1,6 +1,6 @@
 # Task Title: Crud App With Database
 
-##### <b>Heroku Link🌐:</b> https://heroku.com
+##### <b>Heroku Link🌐:</b> https://zxi4gxhng.herokuapp.com/api/v1/users
 
 ## APP FEATURES
 
@@ -32,31 +32,31 @@ The data you are required to create should contain name, email, country.
 
 ## Get All Data Endpoints
 
-- `GET: /api.v1/users` : access public, get all data
+- `GET: https://zxi4gxhng.herokuapp.com/api/v1/users` : access public, get all data
 
 ```json
-GET >>> data: {}
+Get >>> data: {}
 ```
 
 ## Create Endpoints
 
-- `POST: /api/v1/users` : access public, post data:
+- `POST: https://zxi4gxhng.herokuapp.com/api/v1/users` : access public, post data:
 
 ```javascript
-POST req.body >>> data: {}
+Post req.body >>> data: {}
 ```
 
 ## Update Data Endpoints
 
-- `PUT: /api/v1/users/:id` : access public, update data:
+- `PUT: https://zxi4gxhng.herokuapp.com/api/v1/users/` : access public, update data:
 
 ```javascript
-PUT req.params >>>  <user id> data:  {}
+Put req.params >>>  <user id> data:  {}
 ```
 
 ## Delete Data
 
-- `DELETE: /api/v1/users/:id` : assess public, delete data:
+- `DELETE: https://zxi4gxhng.herokuapp.com/api/v1/users/` : assess public, delete data:
 
 ```javascript
 Delete req.params >>>  <user id> data:  {}
