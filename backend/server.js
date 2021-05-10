@@ -21,6 +21,6 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, async () => {
   await connectDB();
   console.log(
-    `:-:-:> Server runing in ${process.env.NODE_ENV} mode on port :> ${PORT}`
+    `:::> Server runing in ${process.env.NODE_ENV} mode @ http://localhost:${PORT}/api/v1/`
   );
 });
