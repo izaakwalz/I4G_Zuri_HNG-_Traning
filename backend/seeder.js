@@ -1,40 +1,29 @@
-// const fs = require('fs');
-// const dotenv = require('dotenv');
+const fs = require('fs');
+const dotenv = require('dotenv');
 // const Post = require('./models/post.model');
-// const connectDB = require('./config/db');
+const subjects = require('./data/subject.json');
+const Subject = require('./models/subject.model');
+const connectDB = require('./config/db');
 
-// dotenv.config();
+dotenv.config();
 
-// connectDB();
+connectDB();
 
-// const posts = JSON.parse(fs.readFileSync(`./data/post.json`, 'utf-8'));
+// const subjects = JSON.parse(fs.readFileSync(datas, 'utf-8'));
 
-// const importData = async () => {
-//   try {
-//     await Post.insertMany(posts);
-//     console.log('success');
-//     process.exit();
-//   } catch (error) {
-//     console.log(error.message);
-//     process.exit(1);
-//   }
-// };
+console.log(subjects);
 
-// if (process.argv[2] === '-i') {
-//   importData();
-// }
+const importData = async () => {
+  try {
+    await Subject.insertMany(subjects);
+    console.log('success');
+    process.exit();
+  } catch (error) {
+    console.log(error.message);
+    process.exit(1);
+  }
+};
 
-// const ggg = Math.round((50.5 / 100) * 100);
-
-// const grade =
-//   ggg >= 90 ? 'A' : ggg >= 75 ? 'B' : ggg >= 50 ? 'C' : ggg >= 40 ? 'D' : 'F';
-// console.log(ggg);
-// console.log(grade);
-
-// console.log(Math.round((ggg / 100) * 100));
-
-// const score = { score: 70 };
-
-// const data = JSON.stringify(score);
-
-// console.log(data);
+if (process.argv[2] === '-i') {
+  importData();
+}
