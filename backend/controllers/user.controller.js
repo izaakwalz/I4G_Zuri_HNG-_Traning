@@ -14,22 +14,6 @@ const GetData = asyncHandeler(async (req, res) => {
   res.status(201).send(response('Success: Data', users));
 });
 /**
- * @ {desc}   Create data
- * @ {route}  POST /api/v1/users
- * @ {access} Public
- */
-const CreateData = asyncHandeler(async (req, res) => {
-  let user = await User.findOne({ email: req.body.email });
-
-  if (user) throw new ErrorResponse('Error: data already exist');
-
-  user = new User(req.body);
-
-  await user.save();
-
-  res.status(201).send(response('Success: data created', user));
-});
-/**
  * @ {desc}   Update data
  * @ {route}  PUT /api/v1/users/:id
  * @ {access} Public
@@ -59,7 +43,7 @@ const DeleteData = asyncHandeler(async (req, res) => {
 
   user.remove();
 
-  res.status(200).send(response('Success: data Deleted', user));
+  res.status(200).send(response('Success: data Deleted', {}));
 });
 
-module.exports = { GetData, CreateData, UpdateData, DeleteData };
+module.exports = { GetData, UpdateData, DeleteData };
