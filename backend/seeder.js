@@ -11,8 +11,6 @@ connectDB();
 
 // const subjects = JSON.parse(fs.readFileSync(datas, 'utf-8'));
 
-console.log(subjects);
-
 const importData = async () => {
   try {
     await Subject.insertMany(subjects);

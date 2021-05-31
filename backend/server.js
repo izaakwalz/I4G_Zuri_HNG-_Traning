@@ -13,6 +13,10 @@ app.use(express.urlencoded({ extended: false }));
 // API routes
 app.use('/api/v1', require('./routes/index.routes'));
 
+app.get('/', (req, res) => {
+  res.send('API IS RUNNING 🚀🚀🚀');
+});
+
 app.use(notFound);
 app.use(errorHandler);
 
