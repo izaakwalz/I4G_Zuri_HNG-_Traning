@@ -10,7 +10,7 @@ const app = express();
 // body parser
 app.use(express.json({ limit: '30mb', extended: true }));
 app.use(express.urlencoded({ limit: '30mb', extended: true }));
-app.use(cors());
+app.use(cors({ origin: true }));
 
 // API routes
 app.use('/api/v1', require('./routes/index.routes'));
