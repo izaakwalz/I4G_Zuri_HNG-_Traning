@@ -8,7 +8,6 @@ const connectDB = require('./config/db');
 dotenv.config();
 
 connectDB();
-
 // const subjects = JSON.parse(fs.readFileSync(datas, 'utf-8'));
 
 const importData = async () => {

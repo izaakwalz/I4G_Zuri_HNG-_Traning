@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const connectDB = require('./config/db');
 const { notFound, errorHandler } = require('./middlewares/error-handler');
 
@@ -7,8 +8,9 @@ dotenv.config();
 
 const app = express();
 // body parser
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json({ limit: '30mb', extended: true }));
+app.use(express.urlencoded({ limit: '30mb', extended: true }));
+app.use(cors());
 
 // API routes
 app.use('/api/v1', require('./routes/index.routes'));
