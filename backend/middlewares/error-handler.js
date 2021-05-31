@@ -26,6 +26,10 @@ const errorHandler = (err, req, res, next) => {
     error = new ErrorResponse(message, 400);
   }
 
+  if (err.name === 'TokenExpiredError') {
+    error = new ErrorResponse('Unauthorized access: Token  expired', 401);
+  }
+
   res.status(error.statusCode || 500);
   res.json({
     message:
